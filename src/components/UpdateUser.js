@@ -229,6 +229,18 @@ class UpdateUser extends Component {
         <div className="messagePhone">{this.state.phoneErr}</div>
         <h2>Nạp / Rút tiền</h2>
         <div className="inputField">
+          <label>Số tiền nạp vào:</label>
+          <NumericFormat
+            placeholder="Số tiền nạp tối thiểu là 50.000"
+            value={this.state.deposit}
+            thousandSeparator={true}
+            onValueChange={(values) => {
+              const { formattedValue } = values;
+              this.setState({ deposit: formattedValue, depositErr: "" });
+            }}
+          />
+        </div>
+        <div className="inputField">
           <label>Số tiền rút ra:</label>
           <NumericFormat
             placeholder="Số tiền rút tối thiểu là 100.000"
@@ -241,18 +253,7 @@ class UpdateUser extends Component {
           />
         </div>
         <div className="messageWithdraw">{this.state.withdrawErr}</div>
-        <div className="inputField">
-          <label>Số tiền nạp vào:</label>
-          <NumericFormat
-            placeholder="Số tiền nạp tối thiểu là 50.000"
-            value={this.state.deposit}
-            thousandSeparator={true}
-            onValueChange={(values) => {
-              const { formattedValue } = values;
-              this.setState({ deposit: formattedValue, depositErr: "" });
-            }}
-          />
-        </div>
+
         <div className="messageDeposit">{this.state.depositErr}</div>
         <div className="createUserBtn">
           <Button

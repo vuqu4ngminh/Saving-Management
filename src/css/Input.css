@@ -1,0 +1,81 @@
+.input {
+  width: 350px;
+  height: 30px;
+  margin-right: 10px;
+}
+a:link, a:visited{
+  text-decoration: none;
+  color: white;
+}
+.btn {
+  height: 36px;
+}
+.FindUser {
+  padding: 20px 20px 0px 20px;
+}
+.inputField {
+  margin: 10px;
+  height: 30px;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+.inputField > input {
+  width: 500px;
+}
+.createUserBtn {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.messageId,
+.messageName,
+.messageBalance,
+.messagePhone,
+.messageDeposit,
+.messageWithdraw,
+.messageAmount,
+.messageTerm {
+  width: 40%;
+  padding-left: 10px;
+  color: red;
+  display: flex;
+  justify-content: flex-end;
+}
+.terms{
+  padding: 20px;
+}
+.term{
+  width: 40%;
+  margin-top: 30px;
+  max-height: 30px;
+  display: flex;
+}
+.term > input{
+  width: 150px;
+}
+.stt{
+  display: flex;
+  justify-content: center;
+  width: 150px;
+}
+.grBtn{
+  margin-left: 20px;
+  width: 150px;
+  display: flex;
+}
+.termApy{
+  width: 150px;
+}
+.inputTerm{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  height: 30px;
+}
+.inputBox > select{
+  height: 30px;
+  width: 508px;
+}

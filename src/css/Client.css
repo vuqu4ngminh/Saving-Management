@@ -1,0 +1,76 @@
+.client {
+  padding: 0px 20px 20px 20px;
+}
+
+table {
+  width: 100%;
+}
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.field {
+  width: 40%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.field > h4 {
+  margin: 0px;
+}
+.field > h3 {
+  color: red;
+}
+.actionUser {
+  width: 40%;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.CreateUser{
+  padding: 20px;
+}
+.deleteSaving{
+  padding: 20px;
+}
+.delBtn{
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+}
+.savField{
+  width: 40%;
+}
+.savTable{
+  background-color: white;
+}
+.total{
+  margin-top: 20px;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+.total > h2{
+  margin: 0px;
+}
+.DeleteUser{
+  padding: 20px;
+}
+.savingForm{
+  display: flex;
+}
+.CreateSaving{
+  width: 40%;
+  padding: 20px;
+}
+.currentApy{
+  margin-left: 200px;
+  padding: 20px;
+}

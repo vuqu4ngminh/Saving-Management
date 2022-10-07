@@ -1,0 +1,18 @@
+.List {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+}
+td,th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tbody:nth-child(even) {
+  background-color: #dddddd;
+}

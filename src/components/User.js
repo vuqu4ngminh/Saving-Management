@@ -58,7 +58,7 @@ class User extends Component {
             <th>{Utils.checkTerm(item.term)}</th>
             <th>{od}</th>
             <th>{ed}</th>
-            <th>{Utils.countDays(item.openDate, item.endDate) - item.nods}</th>
+            <th>{Math.floor(Utils.countDays(item.openDate, item.endDate) - item.nods)}</th>
             <th>
               <Button variant="contained" color="error"><Link to={'/user/saving/' + item.savId}>Tất toán trước hạn</Link></Button>
             </th>

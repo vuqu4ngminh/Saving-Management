@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class UpdateUser extends Component {
   state = {
@@ -22,6 +22,7 @@ class UpdateUser extends Component {
     balance: "",
     currentId: "",
     currentPhone: "",
+    savings: []
   };
   handleText = (e, type) => {
     e.preventDefault();
@@ -170,6 +171,17 @@ class UpdateUser extends Component {
       this.setState({
         newId: newUser.id,
       });
+      let newSavings = [...this.state.savings]
+      for(let i = 0;i < newSavings.length;i++){
+        let oldSavId = newSavings[i].savId;
+        await axios.delete(`http://localhost:8686/api/v1/deleteSaving/${oldSavId}`);
+        let item = newSavings[i]
+        item.savId = newUser.id + String(i);
+        item.owner = newUser.id;
+        
+        await axios.post(`http://localhost:8686/api/v1/createSaving`, item);
+      }
+      
       await axios.put(
         `http://localhost:8686/api/v1/updateUser/${this.state.oldId}`,
         newUser
@@ -186,6 +198,9 @@ class UpdateUser extends Component {
     const resInfo = await axios.get(
       `http://localhost:8686/api/v1/user/${currentId}`
     );
+    const resSavings = await axios.get(
+      `http://localhost:8686/api/v1/savings/${currentId}`
+    );
     this.setState({
       id: resInfo.data.data[0].id,
       name: resInfo.data.data[0].name,
@@ -194,9 +209,11 @@ class UpdateUser extends Component {
       oldId: currentId,
       currentId: resInfo.data.data[0].id,
       currentPhone: resInfo.data.data[0].phone,
+      savings: resSavings.data.data
     });
   };
   render() {
+
     return (
       <div className="CreateUser">
         <h2>Cập nhật thông tin</h2>
@@ -240,6 +257,7 @@ class UpdateUser extends Component {
             }}
           />
         </div>
+        <div className="messageDeposit">{this.state.depositErr}</div>
         <div className="inputField">
           <label>Số tiền rút ra:</label>
           <NumericFormat
@@ -253,8 +271,6 @@ class UpdateUser extends Component {
           />
         </div>
         <div className="messageWithdraw">{this.state.withdrawErr}</div>
-
-        <div className="messageDeposit">{this.state.depositErr}</div>
         <div className="createUserBtn">
           <Button
             variant="contained"
